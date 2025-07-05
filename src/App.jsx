@@ -5,7 +5,7 @@ function App() {
   
 
   return (
-    <div className='container h-screen bg-gradient-to-r from-gray-500 to-black'>     
+    <div className=' w-full min-h-screen bg-gradient-to-r from-gray-500 to-black'>     
       
       <TodoWrapper />
       

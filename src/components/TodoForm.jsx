@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 
 
 export const TodoForm = ({addTodo}) => {
@@ -7,10 +7,17 @@ export const TodoForm = ({addTodo}) => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    if (value.trim() === "") return; // Prevent empty todos
+    if (value.trim() === "") return; 
     addTodo(value);
-    setValue(""); // Clear input after adding
+    setValue(""); 
+    inputRef.current.focus();
   };
+
+    const inputRef = useRef(null); 
+
+  useEffect(() => {
+    inputRef.current.focus();
+  }, []);
 
   return (
     <form className="flex items-center justify-center h-60 " onSubmit={handleSubmit}>
@@ -18,8 +25,9 @@ export const TodoForm = ({addTodo}) => {
         <h1 className='text-5xl text-white py-10 w-full flex text-center justify-center'>To do list</h1>
         <div className='flex text-white'>
          <input 
-          type="text"    
-          className="text-white pr-4 pl-1 py-3 w-80 border-b border-white focus:outline-none focus:border-white"
+          type="text"  
+          ref={inputRef}  
+          className="text-white pr-4 pl-1 py-3 w-52 md:w-80 border-b border-white focus:outline-none focus:border-white"
           placeholder='What is the task of today'
           onChange={(e) => setValue(e.target.value)}
           value={value}
