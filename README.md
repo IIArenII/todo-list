@@ -16,7 +16,10 @@
 
 ## Screeshot
 
-![Todo List Screenshot](./src/assets/todo-list-ss.png)
+![todo-list-ss](https://github.com/user-attachments/assets/d13de411-6f52-49cd-8187-b40053fe869e)
+
+
+
 
 ## Clone the repo  
 ```bash
